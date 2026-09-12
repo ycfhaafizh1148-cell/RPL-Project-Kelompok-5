@@ -17,7 +17,7 @@ Sebelum mulai mengisi atau mengubah kode, kamu harus mengunduh project dan menda
 ### 1. Download Project ke Perangkat Kamu
 Buka terminal kamu, lalu jalankan perintah ini untuk mendownload (clone) folder project dari GitHub ke HP atau laptopmu:
 ```bash
-git clone https://github.com
+git clone https://github.com/ycfhaafizh1148-cell/RPL-Project-Kelompok-5.git
 ```
 
 ### 2. Masuk ke Folder Project
@@ -40,7 +40,7 @@ git config --local user.email "email-github-kamu@gmail.com"
 Kita menggunakan nama remote khusus yaitu `kampus`. Jalankan perintah ini untuk memastikan perangkatmu terhubung ke server GitHub kita dengan benar:
 ```bash
 # 1. Menambahkan link GitHub project dengan nama alias "kampus"
-git remote add kampus https://github.com
+git remote add kampus https://github.com/ycfhaafizh1148-cell/RPL-Project-Kelompok-5.git
 
 # 2. Mengecek apakah nama remote "kampus" sudah terpasang dengan benar
 git remote -v
