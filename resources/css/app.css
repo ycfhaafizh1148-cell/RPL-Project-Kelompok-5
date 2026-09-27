@@ -2,3 +2,78 @@
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+
+@theme {
+    /* Light */
+    --color-bg-light: #F8FAFC;
+    --color-surface-light: #FFFFFF;
+    --color-text-light: #111827;
+    --color-muted-light: #6B7280;
+    --color-border-light: #E5E7EB;
+
+    /* Dark */
+    --color-bg-dark: #001527;
+    --color-surface-dark: #002B4A;
+    --color-text-dark: #FFFFFF;
+    --color-muted-dark: #9CA3AF;
+    --color-border-dark: #334155;
+
+    /* Brand */
+    --color-red: #DC2626;
+
+    /* Status */
+    --color-ready: #16A34A;
+    --color-dp: #F59E0B;
+    --color-sold: #DC2626;
+    --color-coming: #0EA5E9;
+
+    /* Font */
+    --font-heading: "Montserrat", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+}
+.home-head {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 16px;
+    background-color: var(--color-bg-dark);
+    border-bottom: 2px solid var(--color-border-dark);
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-light {
+    display: none;
+}
+
+.logo-dark {
+    display: block;
+    width: auto;
+    height: 50px;
+    transform: translateY(2px);
+}
+
+.header-notif {
+    position: absolute;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--color-sold);
+    cursor: pointer;
+}
