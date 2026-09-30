@@ -1,40 +1,43 @@
+/* Imports & Directives */
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
+/* Theme Variables */
 @theme {
-    /* Light */
     --color-bg-light: #F8FAFC;
     --color-surface-light: #FFFFFF;
     --color-text-light: #111827;
     --color-muted-light: #6B7280;
-    --color-border-light: #E5E7EB;
+    --color-border-light: #D1D5DB;
 
-    /* Dark */
-    --color-bg-dark: #001527;
-    --color-surface-dark: #002B4A;
+    --color-bg-dark: #000D1A;
+    --color-surface-dark: #001522;
     --color-text-dark: #FFFFFF;
-    --color-muted-dark: #9CA3AF;
-    --color-border-dark: #334155;
+    --color-muted-dark: #9AA7B5;
+    --color-border-dark: #16415E;
 
-    /* Brand */
-    --color-red: #DC2626;
+    --color-silver: #B8C1CC;
+    --color-silver-muted: #7F8C9A;
 
-    /* Status */
+    --color-red: #E6001C;
+
     --color-ready: #16A34A;
     --color-dp: #F59E0B;
-    --color-sold: #DC2626;
+    --color-sold: #E6001C;
     --color-coming: #0EA5E9;
 
-    /* Font */
     --font-heading: "Montserrat", sans-serif;
     --font-body: "Inter", sans-serif;
 }
 
+/* Base Styles */
 body {
-  background-color: var(--color-bg-dark);
+    background-color: var(--color-bg-dark);
 }
+
+/* Header Component */
 .home-head {
     height: 64px;
     display: flex;
@@ -43,7 +46,7 @@ body {
     position: relative;
     padding: 0 16px;
     background-color: var(--color-bg-dark);
-    border-bottom: 2px solid var(--color-border-dark);
+    border-bottom: 3px solid var(--color-border-dark);
 }
 
 .header-logo {
@@ -74,6 +77,141 @@ body {
     border: 0;
     padding: 0;
     background: transparent;
-    color: var(--color-sold);
+    color: var(--color-border-light);
     cursor: pointer;
+    transform: translateY(2px);
+}
+
+/* Search Bar Component */
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 40px);
+    margin: 12px auto 0;
+    min-height: 48px;
+    padding: 0 12px;
+    background-color: var(--color-surface-dark);
+    border: 1px solid var(--color-border-dark);
+    border-radius: 12px;
+}
+
+.filter-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-text-dark);
+    cursor: pointer;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    margin-left: 8px;
+    padding-left: 12px;
+    border-left: 3px solid var(--color-silver);
+}
+
+.search-form svg {
+    flex-shrink: 0;
+    color: var(--color-muted-dark);
+}
+
+.search-form input {
+    width: 100%;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--color-text-dark);
+}
+
+.search-form input::placeholder {
+    color: var(--color-muted-dark);
+}
+
+.search-form input:focus::placeholder {
+    color: transparent;
+}
+
+/* Status Section Component */
+.status-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: calc(100% - 40px);
+    margin: 12px auto 0;
+}
+
+.status-card {
+    position: relative;
+    min-width: 0;
+    height: 62px;
+    padding: 8px 10px;
+    display: block;
+    box-sizing: border-box;
+    background-color: var(--color-surface-dark);
+    border: 1px solid var(--color-ready);
+    border-radius: 8px;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    overflow: visible;
+    transition: border-color 0.3s ease;
+}
+
+.status-ready:hover {
+    background-color: color-mix(
+        in srgb,
+        var(--color-ready) 12%,
+        var(--color-surface-dark)
+    );
+}
+
+.status-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-ready);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.status-count {
+    display: block;
+    margin-top: 7px;
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-ready);
+}
+
+.status-count small {
+    margin-left: 6px;
+    padding-left: 6px;
+    border-left: 2px solid var(--color-ready);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-icon {
+    position: absolute;
+    right: 14px;
+    top: 30px;
+    width: 28px;
+    height: 28px;
+    color: var(--color-ready);
+    transform-origin: center bottom;
 }
