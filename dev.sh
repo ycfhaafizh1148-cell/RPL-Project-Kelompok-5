@@ -1,19 +1,19 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 
-echo "Starting Laravel..."
 php artisan serve &
 LARAVEL_PID=$!
 
+npm run dev &
+VITE_PID=$!
+
 cleanup() {
     echo ""
-    echo "Stopping Laravel..."
-    kill "$LARAVEL_PID" 2>/dev/null
-    wait "$LARAVEL_PID" 2>/dev/null
+    echo "Stopping Laravel and Vite..."
+    kill "$LARAVEL_PID" "$VITE_PID" 2>/dev/null
+    wait "$LARAVEL_PID" "$VITE_PID" 2>/dev/null
     echo "Development servers stopped."
 }
 
 trap cleanup INT TERM EXIT
 
-echo "Starting Vite..."
-cd ~/raya21-node
-./node_modules/.bin/vite --config ~/raya21-node/vite.config.js
+wait

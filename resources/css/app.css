@@ -1,10 +1,8 @@
-/* Imports & Directives */
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
-/* Theme Variables */
 @theme {
     --color-bg-light: #F8FAFC;
     --color-surface-light: #FFFFFF;
@@ -32,18 +30,16 @@
     --font-body: "Inter", sans-serif;
 }
 
-/* Base Styles */
 body {
     background-color: var(--color-bg-dark);
 }
 
-/* Header Component */
 .home-head {
-    height: 64px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    height: 64px;
     padding: 0 16px;
     background-color: var(--color-bg-dark);
     border-bottom: 3px solid var(--color-border-dark);
@@ -69,26 +65,25 @@ body {
 .header-notif {
     position: absolute;
     right: 20px;
-    width: 40px;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0;
+    width: 40px;
+    height: 40px;
     padding: 0;
+    border: 0;
     background: transparent;
     color: var(--color-border-light);
     cursor: pointer;
     transform: translateY(2px);
 }
 
-/* Search Bar Component */
 .search-bar {
     display: flex;
     align-items: center;
     width: calc(100% - 40px);
-    margin: 12px auto 0;
     min-height: 48px;
+    margin: 12px auto 0;
     padding: 0 12px;
     background-color: var(--color-surface-dark);
     border: 1px solid var(--color-border-dark);
@@ -143,7 +138,6 @@ body {
     color: transparent;
 }
 
-/* Status Section Component */
 .status-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -154,18 +148,25 @@ body {
 
 .status-card {
     position: relative;
+    display: block;
     min-width: 0;
     height: 62px;
     padding: 8px 10px;
-    display: block;
     box-sizing: border-box;
     background-color: var(--color-surface-dark);
-    border: 1px solid var(--color-ready);
+    border: 1px solid;
     border-radius: 8px;
     color: var(--color-text-dark);
     text-decoration: none;
     overflow: visible;
-    transition: border-color 0.3s ease;
+}
+
+.status-ready {
+    border-color: var(--color-ready);
+}
+
+.status-downpayment {
+    border-color: var(--color-dp);
 }
 
 .status-ready:hover {
@@ -176,15 +177,30 @@ body {
     );
 }
 
+.status-downpayment:hover {
+    background-color: color-mix(
+        in srgb,
+        var(--color-dp) 12%,
+        var(--color-surface-dark)
+    );
+}
+
 .status-label {
     display: block;
     font-family: var(--font-body);
     font-size: 22px;
     font-weight: 700;
     line-height: 1;
-    color: var(--color-ready);
     text-decoration: underline;
     text-underline-offset: 4px;
+}
+
+.status-label-ready {
+    color: var(--color-ready);
+}
+
+.status-label-downpayment {
+    color: var(--color-dp);
 }
 
 .status-count {
@@ -194,24 +210,63 @@ body {
     font-size: 15px;
     font-weight: 700;
     line-height: 1;
+}
+
+.status-count-ready {
     color: var(--color-ready);
+}
+
+.status-count-downpayment {
+    color: var(--color-dp);
 }
 
 .status-count small {
     margin-left: 6px;
     padding-left: 6px;
-    border-left: 2px solid var(--color-ready);
+    border-left: 2px solid;
     font-family: var(--font-body);
     font-size: 13px;
     font-weight: 500;
 }
 
-.status-icon {
+.status-count-ready small {
+    border-color: var(--color-ready);
+}
+
+.status-count-downpayment small {
+    border-color: var(--color-dp);
+}
+
+.status-icon-ready {
+    color: var(--color-ready);
     position: absolute;
+    top: 29px;
     right: 14px;
-    top: 30px;
+    display: block;
     width: 28px;
     height: 28px;
-    color: var(--color-ready);
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform-origin: center bottom;
+}
+
+.status-icon-downpayment {
+    color: var(--color-dp);
+    position: absolute;
+    top: 32px;
+    right: 14px;
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
     transform-origin: center bottom;
 }
