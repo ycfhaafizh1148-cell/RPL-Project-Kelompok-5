@@ -1,272 +1,310 @@
 @import 'tailwindcss';
 
+/* CONFIG & THEME DIRECTIVES (TAILWIND V4) */
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --color-bg-light: #F8FAFC;
-    --color-surface-light: #FFFFFF;
-    --color-text-light: #111827;
-    --color-muted-light: #6B7280;
-    --color-border-light: #D1D5DB;
+  /* Light Palette */
+  --color-bg-light: #F8FAFC;
+  --color-surface-light: #FFFFFF;
+  --color-text-light: #111827;
+  --color-muted-light: #6B7280;
+  --color-border-light: #D1D5DB;
 
-    --color-bg-dark: #000D1A;
-    --color-surface-dark: #001522;
-    --color-text-dark: #FFFFFF;
-    --color-muted-dark: #9AA7B5;
-    --color-border-dark: #16415E;
+  /* Dark Palette */
+  --color-bg-dark: #000D1A;
+  --color-surface-dark: #001522;
+  --color-text-dark: #FFFFFF;
+  --color-muted-dark: #9AA7B5;
+  --color-border-dark: #16415E;
 
-    --color-silver: #B8C1CC;
-    --color-silver-muted: #7F8C9A;
+  /* Neutral Accent Palette */
+  --color-silver: #B8C1CC;
+  --color-silver-muted: #7F8C9A;
+  --color-red: #E6001C;
 
-    --color-red: #E6001C;
+  /* Status Indicators */
+  --color-ready: #16A34A;
+  --color-dp: #F59E0B;
+  --color-sold: #E6001C;
+  --color-coming: #0EA5E9;
 
-    --color-ready: #16A34A;
-    --color-dp: #F59E0B;
-    --color-sold: #E6001C;
-    --color-coming: #0EA5E9;
-
-    --font-heading: "Montserrat", sans-serif;
-    --font-body: "Inter", sans-serif;
+  /* Typography Stack */
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
+
+/* GLOBAL / BASE STYLES */
 
 body {
-    background-color: var(--color-bg-dark);
+  background-color: var(--color-bg-dark);
 }
+
+/* HEADER COMPONENT */
 
 .home-head {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 64px;
-    padding: 0 16px;
-    background-color: var(--color-bg-dark);
-    border-bottom: 3px solid var(--color-border-dark);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  padding: 0 16px;
+  background-color: var(--color-bg-dark);
+  border-bottom: 3px solid var(--color-border-dark);
 }
 
+/* Logo Variants */
 .header-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-light {
-    display: none;
+  display: none;
 }
 
 .logo-dark {
-    display: block;
-    width: auto;
-    height: 50px;
-    transform: translateY(2px);
+  display: block;
+  width: auto;
+  height: 50px;
+  transform: translateY(2px);
 }
 
+/* Notification Trigger Button */
 .header-notif {
-    position: absolute;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: var(--color-border-light);
-    cursor: pointer;
-    transform: translateY(2px);
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-border-light);
+  cursor: pointer;
+  transform: translateY(2px);
 }
+
+/* SEARCH BAR COMPONENT */
 
 .search-bar {
-    display: flex;
-    align-items: center;
-    width: calc(100% - 40px);
-    min-height: 48px;
-    margin: 12px auto 0;
-    padding: 0 12px;
-    background-color: var(--color-surface-dark);
-    border: 1px solid var(--color-border-dark);
-    border-radius: 12px;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 40px);
+  min-height: 48px;
+  margin: 12px auto 0;
+  padding: 0 12px;
+  background-color: var(--color-surface-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 12px;
 }
 
 .filter-search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: transparent;
-    color: var(--color-text-dark);
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-dark);
+  cursor: pointer;
 }
 
+/* Input Wrapper & Controls */
 .search-form {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    min-width: 0;
-    margin-left: 8px;
-    padding-left: 12px;
-    border-left: 3px solid var(--color-silver);
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  margin-left: 8px;
+  padding-left: 12px;
+  border-left: 3px solid var(--color-silver);
 }
 
 .search-form svg {
-    flex-shrink: 0;
-    color: var(--color-muted-dark);
+  flex-shrink: 0;
+  color: var(--color-muted-dark);
 }
 
 .search-form input {
-    width: 100%;
-    min-width: 0;
-    padding: 8px 10px;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: var(--color-text-dark);
+  width: 100%;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--color-text-dark);
 }
 
 .search-form input::placeholder {
-    color: var(--color-muted-dark);
+  color: var(--color-muted-dark);
 }
 
 .search-form input:focus::placeholder {
-    color: transparent;
+  color: transparent;
 }
 
+/* STATUS CARDS COMPONENT */
+
+/* Grid Layout Container */
 .status-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    width: calc(100% - 40px);
-    margin: 12px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: calc(100% - 40px);
+  margin: 12px auto 0;
 }
 
+/* Card Base */
 .status-card {
-    position: relative;
-    display: block;
-    min-width: 0;
-    height: 62px;
-    padding: 8px 10px;
-    box-sizing: border-box;
-    background-color: var(--color-surface-dark);
-    border: 1px solid;
-    border-radius: 8px;
-    color: var(--color-text-dark);
-    text-decoration: none;
-    overflow: visible;
+  position: relative;
+  display: block;
+  min-width: 0;
+  height: 62px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  background-color: var(--color-surface-dark);
+  border: 1px solid;
+  border-radius: 8px;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  overflow: visible;
 }
 
+/* Status Variants (Borders & Hover States) */
 .status-ready {
-    border-color: var(--color-ready);
+  border-color: var(--color-ready);
 }
 
 .status-downpayment {
-    border-color: var(--color-dp);
+  border-color: var(--color-dp);
+}
+
+.status-sold {
+  border-color: var(--color-red);
+}
+
+.status-comingsoon {
+  border-color: var(--color-muted-dark);
 }
 
 .status-ready:hover {
-    background-color: color-mix(
-        in srgb,
-        var(--color-ready) 12%,
-        var(--color-surface-dark)
-    );
+  background-color: color-mix(in srgb, var(--color-ready) 12%, var(--color-surface-dark));
 }
 
 .status-downpayment:hover {
-    background-color: color-mix(
-        in srgb,
-        var(--color-dp) 12%,
-        var(--color-surface-dark)
-    );
+  background-color: color-mix(in srgb, var(--color-dp) 12%, var(--color-surface-dark));
 }
 
+.status-sold:hover {
+  background-color: color-mix(in srgb, var(--color-red) 12%, var(--color-surface-dark));
+}
+
+.status-comingsoon:hover {
+  background-color: color-mix(in srgb, var(--color-muted-dark) 12%, var(--color-surface-dark));
+}
+
+/* Label Elements */
 .status-label {
-    display: block;
-    font-family: var(--font-body);
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  display: block;
+  margin-top: 2px;
+  margin-left: 2px;
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.status-label-ready {
-    color: var(--color-ready);
-}
+.status-label-ready { color: var(--color-ready); }
+.status-label-downpayment { color: var(--color-dp); }
+.status-label-sold { color: var(--color-red); }
+.status-label-comingsoon { color: var(--color-muted-dark); }
 
-.status-label-downpayment {
-    color: var(--color-dp);
-}
-
+/* Stock Count & Unit Text */
 .status-count {
-    display: block;
-    margin-top: 7px;
-    font-family: var(--font-heading);
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1;
+  display: block;
+  margin-top: 11px;
+  margin-left: 7px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.status-count-ready {
-    color: var(--color-ready);
-}
-
-.status-count-downpayment {
-    color: var(--color-dp);
-}
+.status-count-ready { color: var(--color-ready); }
+.status-count-downpayment { color: var(--color-dp); }
+.status-count-sold { color: var(--color-sold); }
+.status-count-comingsoon { color: var(--color-muted-dark); }
 
 .status-count small {
-    margin-left: 6px;
-    padding-left: 6px;
-    border-left: 2px solid;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 500;
+  margin-left: 6px;
+  padding-left: 6px;
+  border-left: 2px solid;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.status-count-ready small {
-    border-color: var(--color-ready);
-}
+.status-count-ready small { border-color: var(--color-ready); }
+.status-count-downpayment small { border-color: var(--color-dp); }
+.status-count-sold small { color: var(--color-red); }
+.status-count-comingsoon small { color: var(--color-muted-dark); }
 
-.status-count-downpayment small {
-    border-color: var(--color-dp);
+/* Icon Overlays */
+.status-icon-ready,
+.status-icon-downpayment,
+.status-icon-sold,
+.status-icon-comingsoon {
+  position: absolute;
+  display: block;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: center bottom;
 }
 
 .status-icon-ready {
-    color: var(--color-ready);
-    position: absolute;
-    top: 29px;
-    right: 14px;
-    display: block;
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transform-origin: center bottom;
+  top: 29px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  color: var(--color-ready);
 }
 
 .status-icon-downpayment {
-    color: var(--color-dp);
-    position: absolute;
-    top: 32px;
-    right: 14px;
-    display: block;
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transform-origin: center bottom;
+  top: 32px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+  color: var(--color-dp);
+}
+
+.status-icon-sold {
+  top: 32px;
+  right: 16px;
+  width: 22px;
+  height: 22px;
+  color: var(--color-red);
+}
+
+.status-icon-comingsoon {
+  top: 32px;
+  right: 16px;
+  width: 22px;
+  height: 22px;
+  color: var(--color-muted-dark);
 }
